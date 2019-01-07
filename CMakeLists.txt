@@ -11,9 +11,9 @@ add_subdirectory(shaderc)
 add_definitions(-DVULKAN_ENABLE)
 add_subdirectory(src)
 
-set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
+#set(CMAKE_RUNTIME_OUTPUT_DIRECTORY "${CMAKE_CURRENT_SOURCE_DIR}/bin")
 
-add_executable(spirv-reflect ${CMAKE_CURRENT_SOURCE_DIR}/main.cpp
+add_executable(spirv-reflect ${CMAKE_CURRENT_SOURCE_DIR}/main_spv_reflect.cpp
                              ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.h
                              ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.c
                              ${CMAKE_CURRENT_SOURCE_DIR}/examples/arg_parser.h

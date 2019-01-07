@@ -88,7 +88,7 @@ void testObsShader()
     std::vector<char> vertexShaderCode(ilenVS);
     StrToHex((unsigned char *)vertexShaderCode.data(), (unsigned char *)srcVS, ilenVS );
 
-    FILE *pFile = fopen("trianglvs", "wb");
+    FILE *pFile = fopen("triangle-vs.spv", "wb");
     fwrite(vertexShaderCode.data(), vertexShaderCode.size(), 1, pFile);
     fclose(pFile);
 
@@ -97,7 +97,7 @@ void testObsShader()
     std::vector<char> fragmentShaderCode(ilenFS);
     StrToHex((unsigned char *)fragmentShaderCode.data(), (unsigned char *)srcFS, ilenFS );
 
-    FILE *pFS = fopen("trianglfs", "wb");
+    FILE *pFS = fopen("triangle-fs.spv", "wb");
     fwrite(fragmentShaderCode.data(), fragmentShaderCode.size(), 1, pFS);
     fclose(pFS);
 }
@@ -107,8 +107,8 @@ int main(int argc, char **argv)
 {
     char *pdata = NULL;
     char &ch = pdata[0];
-    testObsShader();
-    obscureShader("../shaders/triangle.h", "../shaders/triangle-spv.h");
+//    testObsShader();
+    obscureShader("../shaders/triangle.glsl", "../shaders/triangle.spv");
 //    testHexToStr();
 //    glsl_to_svp();
 //    readShaderSpvFile("../shaders/tri.vert.spv");
