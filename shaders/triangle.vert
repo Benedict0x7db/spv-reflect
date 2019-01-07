@@ -5,12 +5,12 @@ layout (location = 0) out vec2 texCoord_f;
 layout (binding = 0) uniform MVP
 {
  mat4 MVP;
-}dd_mvp;
+}gl_mvp;
 
 layout (binding = 1) uniform shadow
 {
     float shadow;
-}dd_shadow;
+}gl_shadow;
 
 out gl_PerVertex
 {
@@ -21,5 +21,5 @@ out gl_PerVertex
 void main()
 {
     texCoord_f = texCoord;
-    gl_Position = dd_mvp.MVP * position;
+    gl_Position = gl_mvp.MVP * position;
 }
