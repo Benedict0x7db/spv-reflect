@@ -15,7 +15,7 @@ add_subdirectory(src)
 
 add_executable(spirv-reflect ${CMAKE_CURRENT_SOURCE_DIR}/main_spv_reflect.cpp
                              ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.h
-                             ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.c
+                             ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.cc
                              ${CMAKE_CURRENT_SOURCE_DIR}/examples/arg_parser.h
                              ${CMAKE_CURRENT_SOURCE_DIR}/examples/arg_parser.cpp
                              ${CMAKE_CURRENT_SOURCE_DIR}/examples/common.h
@@ -45,7 +45,7 @@ if (SPIRV_REFLECT_BUILD_TESTS)
   add_subdirectory(third_party/googletest)
 	add_executable(test-spirv-reflect ${CMAKE_CURRENT_SOURCE_DIR}/tests/test-spirv-reflect.cpp
                                     ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.h
-                                    ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.c
+                                    ${CMAKE_CURRENT_SOURCE_DIR}/spirv_reflect.cc
                                     ${CMAKE_CURRENT_SOURCE_DIR}/common/output_stream.h
                                     ${CMAKE_CURRENT_SOURCE_DIR}/common/output_stream.cpp)
   set_target_properties(test-spirv-reflect PROPERTIES

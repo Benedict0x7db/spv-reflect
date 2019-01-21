@@ -1,25 +1,26 @@
-#version 450 core
-layout (location = 0) in vec4 position;
-layout (location = 1) in vec2 texCoord;
-layout (location = 0) out vec2 texCoord_f;
-layout (binding = 0) uniform MVP
-{
- mat4 MVP;
-}gl_mvp;
+#version 450
+#extension GL_ARB_separate_shader_objects : enable
 
-layout (binding = 1) uniform shadow
-{
-    float shadow;
-}gl_shadow;
+layout(location = 0) in vec2 inPosition;
+layout(location = 1) in vec2 inTexCoord;
+
+layout(binding = 0) uniform UniformBufferMV {
+    mat4 model;
+    mat4 view;
+} ubo;
+
+layout(binding = 1) uniform UProj {
+    mat4 proj;
+} uproj;
+
+layout(location = 0) out vec2 fragTexCoord;
 
 out gl_PerVertex
 {
-	vec4 gl_Position;
-	float gl_PointSize;
+    vec4 gl_Position;
 };
 
-void main()
-{
-    texCoord_f = texCoord;
-    gl_Position = gl_mvp.MVP * position;
+void main() {
+    gl_Position = uproj.proj * ubo.view * ubo.model * vec4(inPosition, 0.0, 1.0);
+    fragTexCoord = inTexCoord;
 }

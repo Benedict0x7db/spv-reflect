@@ -4,7 +4,7 @@ project(examples)
 
 list(APPEND SPIRV_REFLECT_FILES
   ${CMAKE_SOURCE_DIR}/spirv_reflect.h
-  ${CMAKE_SOURCE_DIR}/spirv_reflect.c
+  ${CMAKE_SOURCE_DIR}/spirv_reflect.cc
 )
 
 list(APPEND COMMON_FILES
